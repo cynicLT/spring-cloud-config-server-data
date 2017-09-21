@@ -13,11 +13,9 @@ import org.springframework.test.context.ActiveProfiles;
 import java.util.HashMap;
 import java.util.List;
 
-import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
-
 @SpringBootTest(
         classes = H2DatabaseDataConfigServerTest.DataConfigServerApplication.class,
-        webEnvironment = RANDOM_PORT
+        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
 )
 @ActiveProfiles("h2")
 public class H2DatabaseDataConfigServerTest extends AbstractDataConfigServerTest {
