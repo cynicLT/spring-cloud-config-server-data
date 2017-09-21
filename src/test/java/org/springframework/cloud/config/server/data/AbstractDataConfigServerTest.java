@@ -8,6 +8,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.cloud.config.environment.Environment;
 import org.springframework.test.context.junit4.SpringRunner;
 
+@RunWith(SpringRunner.class)
 class AbstractDataConfigServerTest {
     @LocalServerPort
     private int port;
