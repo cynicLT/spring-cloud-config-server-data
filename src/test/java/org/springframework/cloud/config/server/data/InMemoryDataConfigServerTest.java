@@ -15,12 +15,12 @@ import java.util.List;
 
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
-
+@RunWith(SpringRunner.class)
 @SpringBootTest(
-        classes = InMemoryDataConfigServerTestCase.DataConfigServerApplication.class,
+        classes = InMemoryDataConfigServerTest.DataConfigServerApplication.class,
         webEnvironment = RANDOM_PORT
 )
-public class InMemoryDataConfigServerTestCase extends AbstractDataConfigServerTestCase {
+public class InMemoryDataConfigServerTest extends AbstractDataConfigServerTest {
     @SpringBootApplication
     @EnableDataConfigServer
     public static class DataConfigServerApplication {
