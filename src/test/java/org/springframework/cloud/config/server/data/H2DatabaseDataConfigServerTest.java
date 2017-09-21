@@ -16,17 +16,17 @@ import java.util.List;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
 @SpringBootTest(
-        classes = H2DatabaseDataConfigServerTestCase.DataConfigServerApplication.class,
+        classes = H2DatabaseDataConfigServerTest.DataConfigServerApplication.class,
         webEnvironment = RANDOM_PORT
 )
 @ActiveProfiles("h2")
-public class H2DatabaseDataConfigServerTestCase extends AbstractDataConfigServerTestCase {
+public class H2DatabaseDataConfigServerTest extends AbstractDataConfigServerTest {
     @SpringBootApplication
     @EnableDataConfigServer
     public static class DataConfigServerApplication {
 
         public static void main(String args[]) {
-            SpringApplication.run(H2DatabaseDataConfigServerTestCase.DataConfigServerApplication.class, args);
+            SpringApplication.run(H2DatabaseDataConfigServerTest.DataConfigServerApplication.class, args);
         }
 
         @Bean
