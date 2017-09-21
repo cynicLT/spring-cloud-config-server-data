@@ -15,7 +15,7 @@ public class DataConfigServerConfiguration {
     @Bean
     @ConditionalOnMissingBean(name = "dataRepository")
     DataRepository emptyDataRepository() {
-        return (profiles, labels) -> new ArrayList<>();
+        return (application, profiles, labels) -> new ArrayList<>();
     }
 
     @Bean

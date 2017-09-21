@@ -28,21 +28,21 @@ public class DataEnvironment implements EnvironmentRepository, InitializingBean 
     @Override
     public Environment findOne(String application, String profile, String label) {
         String[] profilesArray = StringUtils.commaDelimitedListToStringArray(profile);
-        List<String> profiles = createProfiles(profilesArray);
-        List<String> labels = createLabels(label);
+        List<String> profilesList = createProfiles(profilesArray);
+        List<String> labelsList = createLabels(label);
 
         try {
-            List<DataPropertySource> sources = sortJdbcPropertySourceBy(
+            List<DataPropertySource> dataPropertySourceList = sortJdbcPropertySourceBy(
                     sortJdbcPropertySourceBy(
-                            dataRepository.loadPropertySources(profiles, labels),
-                            Comparator.comparingInt(source -> labels.indexOf(source.getLabel()))
+                            dataRepository.loadPropertySources(application, profilesList, labelsList),
+                            Comparator.comparingInt(source -> labelsList.indexOf(source.getLabel()))
                     ),
-                    Comparator.comparingInt(source -> profiles.indexOf(source.getProfile()))
+                    Comparator.comparingInt(source -> profilesList.indexOf(source.getProfile()))
             );
 
             Environment environment = new Environment(application, profilesArray, label, null, null);
 
-            environment.addAll(sources.stream().
+            environment.addAll(dataPropertySourceList.stream().
                     map(jdbcPropertySource -> new PropertySource(
                                     createSourceName(application, jdbcPropertySource),
                                     internalYamlProcessor.flattenMap(jdbcPropertySource.getSource())

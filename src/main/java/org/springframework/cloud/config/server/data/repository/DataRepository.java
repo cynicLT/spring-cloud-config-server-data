@@ -12,9 +12,10 @@ public interface DataRepository {
     /**
      * Load Property sources from database;
      *
-     * @param profiles list of profiles
-     * @param labels   list of labels
+     * @param application application name
+     * @param profiles    list of profiles
+     * @param labels      list of labels
      * @return loaded property sources
      */
-    List<DataPropertySource> loadPropertySources(List<String> profiles, List<String> labels);
+    List<DataPropertySource> loadPropertySources(String application, List<String> profiles, List<String> labels);
 }
