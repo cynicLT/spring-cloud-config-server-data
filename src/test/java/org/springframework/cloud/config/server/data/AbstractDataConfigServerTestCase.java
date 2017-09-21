@@ -9,7 +9,7 @@ import org.springframework.cloud.config.environment.Environment;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-public class AbstractDataConfigServerTestCase {
+class AbstractDataConfigServerTestCase {
     @LocalServerPort
     private int port;
 

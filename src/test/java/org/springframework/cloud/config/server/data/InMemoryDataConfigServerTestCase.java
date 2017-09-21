@@ -32,7 +32,7 @@ public class InMemoryDataConfigServerTestCase extends AbstractDataConfigServerTe
         @Bean
         DataRepository dataRepository() {
 
-            return (List<String> profiles, List<String> labels) -> new ArrayList<DataPropertySource>() {{
+            return (String application, List<String> profiles, List<String> labels) -> new ArrayList<DataPropertySource>() {{
                 add(new DataPropertySource("default", "", new HashMap<String, Object>() {{
                     put("key", "value");
                 }}));
